@@ -7,7 +7,6 @@ import { query } from 'express';
 export class CarController {
     constructor(private carService : CarService){}
 
-
     //get car object
     @Get()
     public getCars()
@@ -16,14 +15,12 @@ export class CarController {
         return this.carService.getCars(); 
     }
 
-
     //post new data object
     @Post()
     public postCars(@Body() car: CarDto) {
         // call service file for postCar()
         return this.carService.postCar(car);
     }
-
 
     //get car object by id
     @Get(':id')
@@ -39,22 +36,9 @@ export class CarController {
         return this.carService.deleteCarById(id);
     }
 
-    
-    //update car object value
-   // @Put(':id')
-   // public async putCarById(@Param('id') id:number, @Query() query) {
-    //    const propertyName = query.property_name;
-    //    const propertyValue = query.property_value;
-    //    return this.carService.putCarById(id, propertyName, propertyValue);
-   // }
-
-
     //update car object value
     @Put(':id')
     public async putCarById(@Param('id') id:number ,@Body() car: CarDto) {
-        //const carId = car.id;
-        //const carBrand = car.brand;
         return this.carService.putCarById(id,car);
-        //return this.carService.putCarById(id, propertyName, propertyValue);
     }
 }
