@@ -15,7 +15,6 @@ export class CarService {
       return this.cars.push(car);
    }
 
-
    public getCarById(id:number):Promise<any>{
       //Get carid 
       const carId = Number(id);
